@@ -51,14 +51,14 @@ namespace HR_Employees_Management_API.Controllers
             return Ok(await _Updater.UpdateLeave(leaveUpdateRequest));
         }
 
-        [HttpPut("{leaveId}/Approve/Manager{ManagerId}")]
+        [HttpPut("{leaveId}/Approve/Manager/{ManagerId}")]
         public async Task<ActionResult<LeaveResponse>> ApproveByManager(Guid leaveId, Guid ManagerId)
         {
 
             return Ok(await _ManagerLeaveApprovalService.ApproveLeave(leaveId, ManagerId));
         }
 
-        [HttpPut("{leaveId}/Approve/Hr{HrId}")]
+        [HttpPut("{leaveId}/Approve/Hr/{HrId}")]
         public async Task<ActionResult<LeaveResponse>> ApproveByHr(Guid leaveId, Guid HrId)
         {
             return Ok(await _HrLeaveApprovalService.ApproveLeave(leaveId, HrId));
@@ -66,13 +66,13 @@ namespace HR_Employees_Management_API.Controllers
 
         }
 
-        [HttpPut("{leaveId}/Reject/Manager{ManagerId}")]
+        [HttpPut("{leaveId}/Reject/Manager/{ManagerId}")]
         public async Task<ActionResult<LeaveResponse>> RejectByManager(Guid leaveId, Guid ManagerId)
         {
             return Ok(await _ManagerLeaveApprovalService.RejectLeave(leaveId, ManagerId));
         }
 
-        [HttpPut("{leaveId}/Reject/Hr{HrId}")]
+        [HttpPut("{leaveId}/Reject/Hr/{HrId}")]
         public async Task<ActionResult<LeaveResponse>> RejectByHr(Guid leaveId, Guid HrId)
         {
             return Ok(await _HrLeaveApprovalService.RejectLeave(leaveId, HrId));
